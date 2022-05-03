@@ -2,14 +2,11 @@ package service
 
 import (
 	"fmt"
-	"log"
 )
 
 func (cart Cart) ApplyPromo() (float32, string) {
 	var totalDiscountPrice float32
 	var promoDescription string
-
-	log.Printf("cart: %v", cart)
 
 	discountPrice, desc := cart.getBonusItem()
 	if desc != "" {

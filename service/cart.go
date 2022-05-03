@@ -2,7 +2,6 @@ package service
 
 import (
 	"fmt"
-	"log"
 )
 
 type Cart struct {
@@ -36,7 +35,6 @@ func (cart Cart) AddItem(key string) error {
 	} else {
 		cart.Items[key] = 1
 	}
-	log.Printf("cart2: %v", cart)
 
 	return nil
 }
@@ -44,8 +42,6 @@ func (cart Cart) AddItem(key string) error {
 func (cart Cart) Checkout() (float32, error) {
 	fmt.Println("=====Checkout=====")
 	var total float32
-	log.Println(products.ProductList)
-	log.Println(cart)
 
 	for key, v := range cart.Items {
 		product := products.ProductList[key]
@@ -60,8 +56,6 @@ func (cart Cart) Checkout() (float32, error) {
 	fmt.Printf("Total discount: \t\t $%.2f \n", discountPrice)
 
 	fmt.Printf("Total price after discount: \t $%.2f \n", (total - discountPrice))
-	log.Println("Total")
-	log.Println(cart)
 
 	return total, nil
 }

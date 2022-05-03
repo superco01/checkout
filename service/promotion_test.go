@@ -1,7 +1,6 @@
 package service
 
 import (
-	"log"
 	"testing"
 
 	m "github.com/superco01/checkout/model"
@@ -25,10 +24,8 @@ func TestPromotion_A304SD(t *testing.T) {
 	for i := 0; i < 3; i++ {
 		srv.AddItem(sku)
 	}
-	log.Printf("cart1: %v", srv.Items)
-	res, err := srv.Checkout()
+	res, _ := srv.Checkout()
 
-	log.Printf("err: %v", err)
 	assert.Equal(t, expected, res)
 }
 

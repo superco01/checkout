@@ -1,0 +1,8 @@
+type Cart {
+    items: [Int!]!
+}
+
+type Mutation {
+    addItem(sku: String!, cart: Cart!): Cart!
+    checkout(cart: Cart!): Float!
+}
